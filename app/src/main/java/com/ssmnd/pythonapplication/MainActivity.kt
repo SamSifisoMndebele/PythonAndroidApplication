@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
         val python = Python.getInstance()
 
         val pyPlot = python.getModule("python_plot")
-        val data = Array(25) { Array(3) { Random.nextDouble().roundToInt() } }
+        val data = Array(25) { Array(3) { Random.nextDouble() } }
         val bytes = pyPlot.callAttr("plot_table", data).toJava(ByteArray::class.java)
 
         val bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
